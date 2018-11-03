@@ -14,8 +14,6 @@ import axios from 'axios';
 //   })
 // }
 
-const getCats = () => {
-  return axios.get('https://random-dogs-api.herokuapp.com/cats/15');
-};
+const getCats = () => axios.get('https://random-dogs-api.herokuapp.com/cats/15');
 
 export default getCats;
