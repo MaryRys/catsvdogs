@@ -1,13 +1,15 @@
 import $ from 'jquery';
 import 'bootstrap';
 import './index.scss';
-
+import catPhoto from './images/catsrule.jpg';
 import getCats from './catGetter';
 
-  const createCatCards = (cats) => {
-    let newString = '';
-    cats.forEach((cat) => {
-      newString += `
+$('#catPhoto').attr('src', catPhoto);
+
+const createCatCards = (cats) => {
+  let newString = '';
+  cats.forEach((cat) => {
+    newString += `
         <div class="card u-clearfix">
           <div class="card-body">
             <span class="card-number card-circle subtle">$${cat['add-on-price'].toFixed(0)}</span>
@@ -18,15 +20,14 @@ import getCats from './catGetter';
           </div>
           <img src="${cat.gif}" alt="" class="card-media" />
         </div>`;
-      });
-      $('#cats').html(newString);
-    };
+  });
+  $('#cats').html(newString);
+};
 
-    getCats()
-    .then((data) => {
-      createCatCards(data.data.cats);
-    })
-    .catch((error) => {
-      console.error({ error });
-    });
-    
+getCats()
+  .then((data) => {
+    createCatCards(data.data.cats);
+  })
+  .catch((error) => {
+    console.error({ error });
+  });
